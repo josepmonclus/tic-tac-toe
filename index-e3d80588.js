@@ -82,11 +82,9 @@ var $t=Object.defineProperty;var vt=(r,t,e)=>t in r?$t(r,t,{enumerable:!0,config
                 .board {
                     max-width: none;
                     max-height: 100%;
-                    width: 80vh;
-                    height: 80vh;
-                    margin: 10px;
+                    width: 90vh;
+                    height: 90vh;
                 }
-
             }
             @media(max-width: 600px) {
                 .board {
@@ -94,14 +92,13 @@ var $t=Object.defineProperty;var vt=(r,t,e)=>t in r?$t(r,t,{enumerable:!0,config
                     max-height: none;
                     width: 90vw;
                     height: 90vw;
-                    margin: 10px;
                 }
             }
             a.new-game{                
                 background-color: #e5d6c2;
                 color: #2D333B;
                 font-family: Verdana;
-                font-size: max(2vw, 2vh);
+                font-size: min(22px, max(2vw, 2vh));
                 font-weight: 800;
                 font-style: normal;
                 text-decoration: none;
