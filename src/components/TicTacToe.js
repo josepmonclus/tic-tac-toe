@@ -6,9 +6,9 @@ class TicTacToe extends LitElement {
     static get styles() {
         return css`
             :host {
-                --board-width: 540px;
-                --board-height: 540px;
                 --board-bg-color: #e5d6c2;
+                --cell-width: 32%;
+                --cell-height: 32%;
             }
             .container {
                 display: flex;
@@ -16,8 +16,10 @@ class TicTacToe extends LitElement {
                 align-items: center;
             }
             .board {
-                width: var(--board-width);
-                height: var(--board-height);
+                max-width: var(--board-width);
+                max-height: var(--board-height);
+                width: 100vw;
+                height: 100vh;
                 padding: 12px;
                 background: var(--board-bg-color);
                 display: flex;
@@ -26,11 +28,30 @@ class TicTacToe extends LitElement {
                 justify-content: space-between;
                 border-radius: 20px;
             }
-            a.new-game{
+            @media(max-height:600px) {
+                .board {
+                    max-width: none;
+                    max-height: 100%;
+                    width: 80vh;
+                    height: 80vh;
+                    margin: 10px;
+                }
+
+            }
+            @media(max-width: 600px) {
+                .board {
+                    max-width: 100%;
+                    max-height: none;
+                    width: 90vw;
+                    height: 90vw;
+                    margin: 10px;
+                }
+            }
+            a.new-game{                
                 background-color: #e5d6c2;
                 color: #2D333B;
                 font-family: Verdana;
-                font-size: 22px;
+                font-size: max(2vw, 2vh);
                 font-weight: 800;
                 font-style: normal;
                 text-decoration: none;
@@ -38,7 +59,7 @@ class TicTacToe extends LitElement {
                 border: 0px solid #000;
                 border-radius: 12px;
                 display: inline-block;
-                margin-top: 20px;
+                margin-top: 2vh;
             }
             a.new-game:hover{
                 background-color: #d9cbb8;
@@ -133,11 +154,11 @@ class TicTacToe extends LitElement {
                         player: this.currentPlayer
                     }
                 }))
-            }, 500);
+            }, 100);
         } else if(this.plays[1] + this.plays[2] === 9) {
             setTimeout(() => {
                 this.dispatchEvent(new CustomEvent('tie'))
-            }, 500);
+            }, 100);
         } else {
             this.turn++;
             this.changePlayer();

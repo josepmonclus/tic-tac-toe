@@ -6,8 +6,8 @@ class TicTacToeCell extends LitElement {
             :host {
                 --box-bg-color: #fefef0;
                 
-                width: 175px;
-                height: 175px;
+                width: var(--cell-width);
+                height: var(--cell-height);
                 background: var(--box-bg-color);
                 display: flex;
                 align-items: center;
@@ -16,27 +16,26 @@ class TicTacToeCell extends LitElement {
             }
             .cross {
                 background:  rgb(71, 69, 78);
-                height: 100px;
+                height: 100%;
                 position: relative;
-                width: 10px;
+                width: 0.7em;
                 transform: rotate(45deg);
                 border-radius: 30px;
             }
             .cross:after {
                 background:  rgb(71, 69, 78);
                 content: "";
-                height: 10px;
-                left: -45px;
+                height: 100%;
                 position: absolute;
-                top: 45px;
-                width: 100px;
+                width: 100%;
+                transform: rotate(90deg);
                 border-radius: 30px;
             }
             .circle {
                 background: transparent;
-                border: 10px solid rgb(184, 64, 57);
-                width: 75px;
-                height: 70px;
+                border: 0.7em solid rgb(184, 64, 57);
+                width: 60%;
+                height: 60%;
                 border-radius: 50%;
             }
         `
