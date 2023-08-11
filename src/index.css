@@ -21,13 +21,13 @@ body {
   width: 90vw;
   font-family: verdana;
   text-align: center;
-  font-size: max(7vw, 7vh);
+  font-size: min(80px, max(7vw, 7vh));
   color: #e5d6c2;
   margin: 20px 0px;
 
   & span {
     display: block;
-    font-size: min(1.8vw, 1.8vh);
+    font-size: 0.2em;
     font-weight: normal;
     line-height: 0;
   }
